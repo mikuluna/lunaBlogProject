@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/head_main.css" />
-<link rel="stylesheet" href="css/me.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/head_main.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/me.css" />
 <style type="text/css">
 	.contain_foot{
 				background:url(img/myblogbackground.png) ;

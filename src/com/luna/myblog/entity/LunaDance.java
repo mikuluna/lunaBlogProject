@@ -1,9 +1,13 @@
 package com.luna.myblog.entity;
 
 public class LunaDance {
+	//自增长id
 	private int id;
+	//封面地址
 	private String imgFace;
+	//舞蹈链接
 	private String danceUrl;
+	//舞蹈题目
 	private String danceTitle;
 
 	public int getId() {
