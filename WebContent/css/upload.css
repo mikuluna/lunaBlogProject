@@ -1,0 +1,64 @@
+	body {
+				text-align: center;
+			}		
+			.login-top {
+				height: 60px;
+			}
+			.login-button {
+				margin-right: 120px;
+				height: 60px;
+			}			
+			.layui-btn-radius {
+				font-size: 20px;
+				margin: 20px;
+			}
+			.layui-input {
+				float: left;
+				border-radius: 20px;
+				width: 600px;
+			}
+			.layui-form-label {
+				font-size: 20px;
+			}	
+			.login-top{
+				height: 60px;
+			}
+			.login-fullmain {
+				width: 800px;
+				margin:0 auto;
+				text-align: center;
+				position: relative;
+				height: 400px;
+				
+			}
+			.login-contain{
+								
+				position:relative;
+				width: 800px;
+				height: 80px;
+				
+			}
+		
+section {
+				
+				margin: auto;
+				text-align: left;
+			}
+				.contain_all {
+				width: 800px;
+				margin: 0 auto;
+				text-align: center;
+				position: relative;
+				height: 400px;
+				margin-top: 50px;
+			}
+			.lunaspan {
+				float: left;
+				position: relative;
+				margin-top: 10px;
+				color: red;
+				width: 150px;
+				height: 80px;
+				font-size: 15px;
+			}
+		

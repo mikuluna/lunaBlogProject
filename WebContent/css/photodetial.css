@@ -1,0 +1,28 @@
+.photodetial_contain_main {
+				width: 860px;
+				margin: 0 auto;
+				text-align: center;
+			}
+			.pd_p{
+				margin: 0 auto;
+				width: 600px;
+				overflow: hidden;
+				word-break:break-all; 
+				word-wrap:break-word ;
+			}
+			.myphoto{
+				max-width: 860px;
+				overflow: hidden;
+				padding: 40px 0;
+			}
+			.myphoto>img{
+				width: 860px;
+				border-radius: 20px;
+			}
+			.pd_title{
+				padding: 25px 0;
+				width: 860px;
+				overflow: hidden;
+				word-break:break-all; 
+				word-wrap:break-word ;
+			}
