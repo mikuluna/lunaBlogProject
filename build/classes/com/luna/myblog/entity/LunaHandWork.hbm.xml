@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+    <class name="com.luna.myblog.entity.LunaHandWork" table="lunahandwork">
+        <id name="id" column="id"><!-- 主键 name指的是属性名字 -->
+            <generator class="increment"/><!-- 生成策略native自动，assigned手动 -->
+        </id>
+        <property name="faceimg" type="java.lang.String" column="faceimg"/>
+       <property name="title" type="java.lang.String" column="title"/>
+       <property name="uploadDate" type="java.lang.String" column="uploadDate"/>
+     
+    </class>
+
+</hibernate-mapping>

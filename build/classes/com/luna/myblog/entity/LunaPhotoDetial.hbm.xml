@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+    <class name="com.luna.myblog.entity.LunaPhotoDetial" table="lunaphotodetial">
+        <id name="id" column="det_id"><!-- 主键 name指的是属性名字 -->
+            <generator class="increment"/><!-- 生成策略native自动，assigned手动 -->
+        </id>
+       <property name="img" type="java.lang.String" column="img"/>
+       <many-to-one name="photo" column="pho_id" class="com.luna.myblog.entity.LunaPhoto"/> 
+     
+    </class>
+
+</hibernate-mapping>

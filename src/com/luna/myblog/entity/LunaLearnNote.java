@@ -1,6 +1,9 @@
 package com.luna.myblog.entity;
 
-public class LunaLearnNote {
+import java.io.Serializable;
+
+public class LunaLearnNote implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String title;
 	private String introduction;

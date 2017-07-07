@@ -1,6 +1,9 @@
 package com.luna.myblog.entity;
 
-public class LunaDance {
+import java.io.Serializable;
+
+public class LunaDance implements Serializable{
+	private static final long serialVersionUID = 1L;
 	//自增长id
 	private int id;
 	//封面地址
@@ -9,6 +12,13 @@ public class LunaDance {
 	private String danceUrl;
 	//舞蹈题目
 	private String danceTitle;
+	public LunaDance(){}
+	public LunaDance(String imgFace, String danceUrl, String danceTitle) {
+		super();
+		this.imgFace = imgFace;
+		this.danceUrl = danceUrl;
+		this.danceTitle = danceTitle;
+	}
 
 	public int getId() {
 		return id;
