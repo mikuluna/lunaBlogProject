@@ -8,21 +8,22 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import com.luna.myblog.dao.LunaDanceDaoI;
+import com.luna.myblog.dao.LunaLearnNoteDaoI;
 import com.luna.myblog.entity.LunaDance;
+import com.luna.myblog.entity.LunaLearnNote;
 import com.luna.myblog.entity.Pager;
 
 
-public class LunaDanceDaoImpl implements LunaDanceDaoI{
+public class LunaLearnNoteDaoImpl implements LunaLearnNoteDaoI{
 	Configuration conf;
 	SessionFactory sessionFactory;
 	Session session;
 
 	@Override
-	public List<LunaDance> queryDancePage(Pager pager){
+	public List<LunaLearnNote> queryDancePage(Pager pager){
 		session= new Configuration().configure().buildSessionFactory().openSession();
-		List<LunaDance> ldlist=null;
-		String hql ="from LunaDance";
+		List<LunaLearnNote> ldlist=null;
+		String hql ="from LunaLearnNote";
 		Query query = session.createQuery(hql);
 		query.setFirstResult(pager.getPageSize()*(pager.getCurPage()-1));
 		query.setMaxResults(pager.getPageSize());
@@ -31,30 +32,31 @@ public class LunaDanceDaoImpl implements LunaDanceDaoI{
 		return ldlist;
 	}
 	@Override
-	public void addLunaDance(LunaDance ludan){
-		session= new Configuration().configure().buildSessionFactory().openSession();
-		Transaction tx = session.beginTransaction();
-		session.save(ludan);
-		tx.commit();
-		session.close();
-		
-	}
-	@Override
 	public int totalPage(){
 		session= new Configuration().configure().buildSessionFactory().openSession();
-		String countHql = "from LunaDance";
+		String countHql = "from LunaLearnNote";
 		Query query = session.createQuery(countHql);
 		int page=((Long)query.uniqueResult()).intValue();
 		session.close();
 		return page;
 	}
+
 	@Override
-	public void deleteLunaDancd(LunaDance ludan) {
+	public void addLunaLearnNote(LunaLearnNote luln) {
 		session= new Configuration().configure().buildSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
-		session.delete(ludan);
+		session.save(luln);
 		tx.commit();
 		session.close();
+	}
+	@Override
+	public void deleteLunaLearnNote(LunaLearnNote luln) {
+		session= new Configuration().configure().buildSessionFactory().openSession();
+		Transaction tx = session.beginTransaction();
+		session.delete(luln);
+		tx.commit();
+		session.close();
+		
 	}
 	
 }

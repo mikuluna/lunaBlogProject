@@ -45,8 +45,7 @@ public class TestMapper {
 			SqlSession sqlSession = sqlSessionFactory.openSession();
 			LunaDanceMapper ludanMapper = sqlSession.getMapper(LunaDanceMapper.class);
 			Pager pager = new Pager();
-			pager.setStart(5);
-			pager.setEnd(5);
+		
 			List<LunaDance> ludanlist = ludanMapper.queryLunaDanceList(pager);
 			sqlSession.close();
 		}
