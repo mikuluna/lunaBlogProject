@@ -9,8 +9,8 @@
 </head>
 <body>
 <div class="hou_top">
-			<ul class="layui-nav">
-				<li class="layui-nav-item layui-this">
+<ul class="layui-nav">
+<li class="layui-nav-item layui-this">
 					<a href="javascript:;">上传</a>
 					<dl class="layui-nav-child">
 						<dd>

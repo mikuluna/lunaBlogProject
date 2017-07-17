@@ -17,12 +17,15 @@ public class LunaDanceDaoImpl implements LunaDanceDaoI{
 	Configuration conf;
 	SessionFactory sessionFactory;
 	Session session;
-
+	/**
+	 * pageSize每页显示数量
+	 * CurPage当前页
+	 */
 	@Override
 	public List<LunaDance> queryDancePage(Pager pager){
 		session= new Configuration().configure().buildSessionFactory().openSession();
 		List<LunaDance> ldlist=null;
-		String hql ="from LunaDance";
+		String hql ="from LunaDance  order by id desc";
 		Query query = session.createQuery(hql);
 		query.setFirstResult(pager.getPageSize()*(pager.getCurPage()-1));
 		query.setMaxResults(pager.getPageSize());
@@ -42,11 +45,12 @@ public class LunaDanceDaoImpl implements LunaDanceDaoI{
 	@Override
 	public int totalPage(){
 		session= new Configuration().configure().buildSessionFactory().openSession();
-		String countHql = "from LunaDance";
+		String countHql = "select count(*) from LunaDance";
 		Query query = session.createQuery(countHql);
 		int page=((Long)query.uniqueResult()).intValue();
+		int totalPage = page%9==0?page/9:page/9+1;
 		session.close();
-		return page;
+		return totalPage;
 	}
 	@Override
 	public void deleteLunaDancd(LunaDance ludan) {

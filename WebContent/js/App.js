@@ -1,3 +1,4 @@
+
 var myApp = angular.module("myApp", ['ui.router']);
 
 myApp.config(function($stateProvider, $urlRouterProvider) {
@@ -11,12 +12,11 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 		.state("PageTab.me", {
 			url: "/me",
 			templateUrl: "view/frontview/me.jsp"
-			
-			
 		})
 		.state("PageTab.dance", {
 			url: "/dance",
-			templateUrl: "view/frontview/dance.jsp"
+			templateUrl: "view/frontview/dance.jsp",
+			controller:"danceController"
 			
 		})
 		.state("PageTab.learnnote", {
@@ -39,4 +39,15 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 		url: "/handwork",
 		templateUrl: "view/frontview/handwork.jsp"
 	});
+});
+myApp.controller('danceController', function($scope, $http){
+	$http({
+        method : 'POST',
+        url:'http://localhost:8080/lunaBlogProject/getLunaDance.do?currentPage=1',
+        headers : {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+          }}).success(function (data) {
+		$scope.lunadanceList = data;
+		});
+	
 });
