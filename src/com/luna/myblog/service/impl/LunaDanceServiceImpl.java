@@ -24,5 +24,27 @@ public class LunaDanceServiceImpl implements LunaDanceService{
 		return lunaDanceDao.totalPage();
 	}
 
+	@Override
+	public void addld(LunaDance lunadance) {
+		lunaDanceDao.addLunaDance(lunadance);
+		
+	}
+
+	@Override
+	public void deleteLd(LunaDance lunadance) {
+		lunaDanceDao.deleteLunaDancd(lunadance);
+		
+	}
+
+	@Override
+	public List<LunaDance> queryAllDance() {
+		List<LunaDance> list =lunaDanceDao.queryAll();
+		return list;
+	}
+	public void deleteById(Integer id){
+		LunaDance lunaDance = lunaDanceDao.query(id);
+		lunaDanceDao.deleteLunaDancd(lunaDance);
+	}
+
 
 }

@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
 
 import com.luna.myblog.dao.LunaDanceDaoI;
 import com.luna.myblog.dao.LunaPhotoDaoI;
@@ -34,7 +35,7 @@ public class LunaPhotoDaoImpl implements LunaPhotoDaoI{
 	public List<LunaPhoto> queryLunaPhotoPage(Pager pager) {
 		session= new Configuration().configure().buildSessionFactory().openSession();
 		List<LunaPhoto> ldlist=null;
-		String hql ="from LunaPhoto";
+		String hql ="from LunaPhoto order by id desc";
 		Query query = session.createQuery(hql);
 		query.setFirstResult(pager.getPageSize()*(pager.getCurPage()-1));
 		query.setMaxResults(pager.getPageSize());
@@ -58,6 +59,23 @@ public class LunaPhotoDaoImpl implements LunaPhotoDaoI{
 		tx.commit();
 		session.close();
 		
+	}
+
+	@Override
+	public List<LunaPhoto> queryAll() {
+		session= new Configuration().configure().buildSessionFactory().openSession();
+		String hql="from LunaPhoto";
+		Query query = session.createQuery(hql);
+		List<LunaPhoto> list = query.list();
+		return list;
+	}
+
+	@Override
+	public LunaPhoto query(Integer id) {
+		session= new Configuration().configure().buildSessionFactory().openSession();
+		LunaPhoto lunaDance = (LunaPhoto)session.createCriteria(LunaPhoto.class)
+				.add(Restrictions.eqOrIsNull("id", id)).uniqueResult();
+		return lunaDance;
 	}
 	
 }

@@ -8,6 +8,7 @@ public class LunaHandWork implements Serializable{
 	private String faceimg;
 	private String title;
 	private String uploadDate;
+	private String handWorkUrl;
 	public int getId() {
 		return id;
 	}
@@ -31,6 +32,12 @@ public class LunaHandWork implements Serializable{
 	}
 	public void setUploadDate(String uploadDate) {
 		this.uploadDate = uploadDate;
+	}
+	public String getHandWorkUrl() {
+		return handWorkUrl;
+	}
+	public void setHandWorkUrl(String handWorkUrl) {
+		this.handWorkUrl = handWorkUrl;
 	}
 	
 }

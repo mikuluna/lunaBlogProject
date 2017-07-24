@@ -9,7 +9,16 @@ public class LunaPhoto implements Serializable {
 	private int id;
 	private String title;
 	private String intro;
+	private String time;
 	private Set<LunaPhotoDetial> lunaphodet = new HashSet<LunaPhotoDetial>();
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
 
 	public int getId() {
 		return id;

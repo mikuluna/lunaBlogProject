@@ -7,8 +7,26 @@ public class LunaLearnNote implements Serializable{
 	private int id;
 	private String title;
 	private String introduction;
+	/**
+	 * 1.Java基础
+	 * 2.后端框架
+	 * 3.SQL
+	 * 4.JSP
+	 * 5.JavaScript
+	 * 6.前端框架
+	 * 7.其他
+	 */
 	private int zoneId;
 	private String contain;
+	private String time;
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
 
 	public int getId() {
 		return id;

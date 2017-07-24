@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 	<!--头部结束-->
 		<!--中间内容部分开始-->
-		<div class="me_contain_my sonp-section sonp-parallax">
+		<div class="me_contain_my">
 			<div class="contain_my_title">
 			<img src="img/touxiang.png" />
 			<h1>诗小轩</h1>
@@ -25,7 +25,7 @@
 		</div>
 		<!--中间内容部分结束-->
 		<!--页脚-->
-		<div class="contain_foot sonp-section sonp-full">
+		<div class="contain_foot">
 			<div class="myzan">
 				<h1>如果你真的喜欢的我的话</h1>
 			</div>

@@ -2,6 +2,7 @@ package com.luna.myblog.dao;
 
 import java.util.List;
 
+import com.luna.myblog.entity.LunaDance;
 import com.luna.myblog.entity.LunaPhoto;
 import com.luna.myblog.entity.Pager;
 
@@ -21,4 +22,6 @@ public interface LunaPhotoDaoI{
 	
 	public int totalPage();
 	public void deleteLunaPhoto(LunaPhoto lup);
+	public List<LunaPhoto> queryAll();
+	public LunaPhoto query(Integer id);
 }

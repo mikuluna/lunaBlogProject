@@ -8,6 +8,13 @@ public class LunaLog implements Serializable{
 	private String title;
 	private String introduction;
 	private String contain;
+	private String time;
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
 	public int getId() {
 		return id;
 	}

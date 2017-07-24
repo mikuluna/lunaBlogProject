@@ -2,6 +2,8 @@ package com.luna.myblog.entity;
 
 import java.io.Serializable;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class LunaDance implements Serializable{
 	private static final long serialVersionUID = 1L;
 	//自增长id
@@ -12,6 +14,7 @@ public class LunaDance implements Serializable{
 	private String danceUrl;
 	//舞蹈题目
 	private String danceTitle;
+	
 	public LunaDance(){}
 	public LunaDance(String imgFace, String danceUrl, String danceTitle) {
 		super();
@@ -51,4 +54,6 @@ public class LunaDance implements Serializable{
 	public void setDanceTitle(String danceTitle) {
 		this.danceTitle = danceTitle;
 	}
+	
+	
 }

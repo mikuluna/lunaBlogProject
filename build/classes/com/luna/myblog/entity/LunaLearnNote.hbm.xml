@@ -10,7 +10,7 @@
        <property name="introduction" type="java.lang.String" column="introduction"/>
        <property name="zoneId" type="java.lang.Integer" column="zoneId"/>
        <property name="contain" type="java.lang.String" column="contain"/>
-     
+      <property name="time" type="java.lang.String" column="time"/>
     </class>
 
 </hibernate-mapping>

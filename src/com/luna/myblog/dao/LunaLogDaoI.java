@@ -2,6 +2,7 @@ package com.luna.myblog.dao;
 
 import java.util.List;
 
+import com.luna.myblog.entity.LunaDance;
 import com.luna.myblog.entity.LunaLog;
 import com.luna.myblog.entity.Pager;
 
@@ -21,4 +22,6 @@ public interface LunaLogDaoI{
 	
 	public int totalPage();
 	public void deleteLunaLog(LunaLog lul);
+	public List<LunaLog> queryAll();
+	public LunaLog query(Integer id);
 }

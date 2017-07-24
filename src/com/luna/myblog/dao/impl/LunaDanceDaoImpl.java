@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
 
 import com.luna.myblog.dao.LunaDanceDaoI;
 import com.luna.myblog.entity.LunaDance;
@@ -59,6 +60,23 @@ public class LunaDanceDaoImpl implements LunaDanceDaoI{
 		session.delete(ludan);
 		tx.commit();
 		session.close();
+	}
+	@Override
+	public List<LunaDance> queryAll() {
+		session= new Configuration().configure().buildSessionFactory().openSession();
+		String hql="from LunaDance";
+		Query query = session.createQuery(hql);
+		List<LunaDance> list = query.list();
+		return list;
+		
+		
+	}
+	public LunaDance query(Integer id){
+		session= new Configuration().configure().buildSessionFactory().openSession();
+		LunaDance lunaDance = (LunaDance)session.createCriteria(LunaDance.class)
+				.add(Restrictions.eqOrIsNull("id", id)).uniqueResult();
+		return lunaDance;
+
 	}
 	
 }

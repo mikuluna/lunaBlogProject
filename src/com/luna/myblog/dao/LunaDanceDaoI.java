@@ -22,4 +22,6 @@ public interface LunaDanceDaoI{
 	public int totalPage();
 	
 	public void deleteLunaDancd(LunaDance ludan);
+	public List<LunaDance> queryAll();
+	public LunaDance query(Integer id);
 }

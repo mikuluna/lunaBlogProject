@@ -34,5 +34,11 @@
              </bean>     
          </list>     
    </property>    
-</bean>    
+</bean>
+<bean id="lunaLearnNoteDao" class="com.luna.myblog.dao.impl.LunaLearnNoteDaoImpl"></bean>
+<bean id="lunaLearnNoteService" class="com.luna.myblog.service.impl.LunaLearnNoteServiceImpl">
+	<property name="lunaLearnNoteDao" ref="lunaLearnNoteDao"></property>
+</bean>
+
+
 </beans>

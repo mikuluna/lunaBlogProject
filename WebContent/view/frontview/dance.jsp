@@ -8,7 +8,7 @@
 		<!--头部结束-->
 		<!--中间内容部分开始-->
 		<div class="dance_contain_main">
-			<ul class="mydance">
+			<ul class="mydance" id="danceul">
 				<li ng-repeat="lunadance in lunadanceList">
 					<!--一个盒子-->
 					<div class="dance_contain_my">
@@ -24,11 +24,12 @@
 					</div>
 					<!--一个盒子结束-->
 				</li>
+				</ul>
 				<div style="clear: both;"></div>
-				<div class="jiazai"><a href="#">加 载...</a></div>
+				<div class="jiazai {{hidden?'':'thishidden'}}" ><a  ng-click="addList()">加 载...</button></a>
 				
 				
-			</ul>
+			
 
 		</div>
 		<!--中间内容部分结束-->

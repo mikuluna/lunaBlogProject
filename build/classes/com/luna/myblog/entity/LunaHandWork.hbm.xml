@@ -9,6 +9,7 @@
         <property name="faceimg" type="java.lang.String" column="faceimg"/>
        <property name="title" type="java.lang.String" column="title"/>
        <property name="uploadDate" type="java.lang.String" column="uploadDate"/>
+       <property name="handWorkUrl" type="java.lang.String" column="handWorkUrl"/>
      
     </class>
 
