@@ -26,7 +26,7 @@
 				</li>
 				</ul>
 				<div style="clear: both;"></div>
-				<div class="jiazai {{hidden?'':'thishidden'}}" ><a  ng-click="addList()">加 载...</button></a>
+				<div class="jiazai {{hidden?'':'thishidden'}}" ><a  ng-click="addList()">加 载...</a></div>
 				
 				
 			

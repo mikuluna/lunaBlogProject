@@ -21,7 +21,8 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 		})
 		.state("PageTab.learnnote", {
 			url: "/learnNote",
-			templateUrl: "view/frontview/learnNote.jsp"
+			templateUrl: "view/frontview/learnNote.jsp",
+			controller:"learnNoteController"
 		})
 	.state("PageTab.photo", {
 		url: "/photo",
@@ -120,3 +121,74 @@ myApp.controller('handWorkController', function($scope, $http){
 	          });
 	}	
 });
+//学习笔记查看以及分页
+myApp.controller('learnNoteController', function($scope, $http){
+	var zoneId=0;
+	var currentPage=1;
+	$scope.hidden=true;
+	$scope.hiddenUp=true;
+	$http({
+        method : 'POST',
+        url:'getAllLearnNote.do?currentPage=1&zoneId='+zoneId,
+        headers : {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+          }}).success(function (data) {
+        	  if(data.length!=5){
+	        		 $scope.hidden=false;
+	        	 }
+        	  else{
+	        		 $scope.hidden=true;
+	        	 }
+		$scope.lunaLearnNotelist = data;
+		});
+	$scope.queryLearnNote=function(id){
+		zoneId=id;
+		$http({
+	        method : 'POST',
+	        url:'getAllLearnNote.do?currentPage=1&zoneId='+zoneId,
+	        headers : {
+	            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+	          }}).success(function (data) {
+	        	  if($scope.hiddenUp){
+	        		  if(data.length!=5){
+		        		 $scope.hidden=false;
+		        	 }else{
+		        		 $scope.hidden=true;
+		        	 }
+	        	  }else{
+	        		  $scope.hidden=false;
+	        	  }
+			$scope.lunaLearnNotelist = data;
+			});
+	}
+	
+	
+	$scope.addList=function(){
+		currentPage++;
+		$http({
+	        method : 'POST',
+	        url:'getAllLearnNote.do?currentPage='+currentPage+'&zoneId='+zoneId,
+	        headers : {
+	            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+	          }}).success(function (data) {
+	        	 var appenddate="";
+	        	 if(data.length!=5){
+	        		 $scope.hidden=false;
+	        		 $scope.hiddenUp=false;
+	        	 }
+	        	 else{
+	        		 $scope.hidden=true;
+	        	 }
+	        	 for(var i=0;i<data.length;i++){
+	        		 appenddate=appenddate+'<li>'
+	        			 +'<a href="#"  target="view_window">'
+	        			 +'<div class="contain_text_in">'
+	        			 +'<h1>'+data[i].title+'</h1><p>'+data[i].introduction+'</p></div></a></li>';
+	        	 }
+	        	 angular.element(document.querySelector('#learnNoteUl')).append(appenddate);			
+	          });
+	}
+	
+});
+
+

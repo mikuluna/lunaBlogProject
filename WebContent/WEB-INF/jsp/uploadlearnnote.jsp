@@ -18,28 +18,37 @@
 <body>
 <jsp:include page="backstagenav.jsp" flush="true"/>
 		<div class="contain_all">
-			<div class="login-top"><h1>日志上传</h1></div>
+			<div class="login-top"><h1>学习笔记上传</h1></div>
 			<section id="editor">
 				<form action="" method="post">
 					<div class="login-contain">
 						<label class="layui-form-label">标题</label>
 						<div class="layui-input-block">
-							<input type="text" class="layui-input">
+							<input type="text" class="layui-input" name="title">
 						</div>
 					</div>
 					<div class="login-contain">
 						<label class="layui-form-label">简介</label>
 						<div class="layui-input-block">
-							<input type="text" class="layui-input">
+							<input type="text" class="layui-input" name="introduction">
 						</div>
 					</div>
 					<div class="login-contain">
-						<label class="layui-form-label">上传时间</label>
+						<label class="layui-form-label">分区</label>
 						<div class="layui-input-block">
-							<input type="text" class="layui-input">
+							<select name="zoneId" lay-filter="aihao" style="font-size: 20px;">
+								<option value="1" selected="">Java基础</option>
+								<option value="2">后端框架</option>
+								<option value="3" >SQL</option>
+								<option value="4">JSP</option>
+								<option value="5">JavaScript</option>
+								<option value="6">前端框架</option>
+								<option value="7">其他</option>
+							</select>
 						</div>
 					</div>
-					<textarea id='edit' style="margin-top: 30px;">
+
+					<textarea id='edit' style="margin-top: 30px;" name="contain">
       				</textarea>
 					<button id="sdfdsf" type="button" class="layui-btn layui-btn-normal layui-btn-radius">查看填入内容</button>
 					<input type="submit" class="layui-btn layui-btn-normal layui-btn-radius">

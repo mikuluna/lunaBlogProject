@@ -6,10 +6,12 @@ import com.luna.myblog.entity.LunaLearnNote;
 import com.luna.myblog.entity.Pager;
 
 public interface LunaLearnNoteService {
-	public List<LunaLearnNote> queryDanceByPage(Pager page);
+	public List<LunaLearnNote> queryLearnNoteByPage(Pager page);
 	public Integer totalPage();
 	public void addld(LunaLearnNote lunadance);
-	public List<LunaLearnNote>queryAllDance();
+	public List<LunaLearnNote>queryAllLearnNote();
 	public void deleteById(Integer id);
 	public LunaLearnNote queryById(Integer id);
+	public List<LunaLearnNote> queryLearnNoteByPage(Pager page,Integer zoneId);
+	public Integer totalPage(Integer zoneId);
 }

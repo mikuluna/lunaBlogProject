@@ -5,14 +5,14 @@
 		<div class="ln_contain_main">
 		<div class="contain_course">
 			<ul class="contain_ul">
-				<li><a href="#">全部</a></li>
-				<li><a href="#">Java基础</a></li>
-				<li><a href="#">后端框架</a></li>
-				<li><a href="#">SQL</a></li>
-				<li><a href="#">JSP</a></li>
-				<li><a href="#">JavaScript</a></li>
-				<li><a href="#">前端框架</a></li>
-				<li><a href="#">其他</a></li>
+				<li><a ng-click="queryLearnNote(zoneId=0)">全部</a></li>
+				<li><a ng-click="queryLearnNote(zoneId=1)">Java基础</a></li>
+				<li><a ng-click="queryLearnNote(zoneId=2)">后端框架</a></li>
+				<li><a ng-click="queryLearnNote(zoneId=3)">SQL</a></li>
+				<li><a ng-click="queryLearnNote(zoneId=4)">JSP</a></li>
+				<li><a ng-click="queryLearnNote(zoneId=5)">JavaScript</a></li>
+				<li><a ng-click="queryLearnNote(zoneId=6)">前端框架</a></li>
+				<li><a ng-click="queryLearnNote(zoneId=7)">其他</a></li>
 				<div style="clear: both;"></div>
 			</ul>
 		</div>
@@ -25,39 +25,18 @@
 			
 		</div>
 		<div class="contain_main">
-				<ul class="contain_text_ul">
-					<li><a href="#" >
+				<ul class="contain_text_ul" id="learnNoteUl">
+					<li ng-repeat="lunaLearnNote in lunaLearnNotelist">
+					<a href="#" >
 						<div class="contain_text_in">
-						<h1>Spring核心特性</h1>
-						<p>一些简介而已</p>
+						<h1>{{lunaLearnNote.title}}</h1>
+						<p>{{lunaLearnNote.introduction}}</p>
 						</div>
 						</a>
 					</li>
-					<li><a href="#" >
-						<div class="contain_text_in">
-						<h1>Spring核心特性</h1>
-						<p>一些简介而已</p>
-						</div>
-						</a>
-					</li>
-					<li><a href="#" >
-						<div class="contain_text_in">
-						<h1>Spring核心特性</h1>
-						<p>一些简介而已</p>
-						</div>
-						</a>
-					</li>
-					<li><a href="#" >
-						<div class="contain_text_in">
-						<h1>Spring核心特性</h1>
-						<p>一些简介而已</p>
-						</div>
-						</a>
-					</li>
+					
 				</ul>
 			</div>
-		
-		
-		
+
 		</div>
-		<div class="jiazai"><a href="#">加 载...</a></div>
+		<div class="jiazai {{hidden?'':'thishidden'}}" ><a  ng-click="addList()">加 载...</a></div>
