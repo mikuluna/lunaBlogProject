@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="leanrnNotedetial_contain_main">
-			<div class="pd_title"><h1>这是标题asdasdsadadasdasdsddasdas</h1>
+			<div class="pd_title"><h1>${lunaLearnNote.title }</h1>
 				<p class="time">2017-8-21</p>
 			</div>
 			<div class="jianjie">

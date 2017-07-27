@@ -3,9 +3,11 @@ package com.luna.myblog.action;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,7 +20,8 @@ import net.sf.json.JSONArray;
 
 @Controller
 public class LunaLearnNoteAction {
-	LunaLearnNoteService lunaLearnNoteService = new LunaLearnNoteServiceImpl();
+	@Autowired
+	private LunaLearnNoteService lunaLearnNoteService;
 	@RequestMapping("/getAllLearnNote")
 	public void getLearnNote(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		List<LunaLearnNote> lunaLearnNotelist=null;
@@ -40,8 +43,26 @@ public class LunaLearnNoteAction {
 		response.getWriter().print(lunaJson);
 	}
 	@RequestMapping("/getLearnNoteDetial")
-	public String getLearnNoteDetial(HttpServletRequest request, HttpServletResponse response){
-		Integer currentPage = Integer.parseInt(request.getParameter("currentPage"));
-		return "learnNoteDetial";
+	public void getLearnNoteDetial(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		LunaLearnNote lunaLearnNote = lunaLearnNoteService.queryById(id);
+		System.out.println(lunaLearnNote.toString());
+		request.setAttribute("lunaLearnNote", lunaLearnNote);
+		request.getRequestDispatcher("view/frontview/learnNoteDetial.jsp").forward(request, response);
 	}
+	
+	
+	
+	
+	public LunaLearnNoteService getLunaLearnNoteService() {
+		return lunaLearnNoteService;
+	}
+	public void setLunaLearnNoteService(LunaLearnNoteService lunaLearnNoteService) {
+		this.lunaLearnNoteService = lunaLearnNoteService;
+	}
+	
+	
+	
+	
+	
 }

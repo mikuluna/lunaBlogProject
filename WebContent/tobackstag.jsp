@@ -12,7 +12,7 @@
 <body>
 <form action="goBackStag.do" method="post">
 <input type="text" name="userName"/>
-<input type="text" name="password"/>
+<input type="password" name="password"/>
 <input type="submit" value="登录"/>
 </form>	
 </body>

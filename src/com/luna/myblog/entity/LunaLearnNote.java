@@ -16,7 +16,7 @@ public class LunaLearnNote implements Serializable{
 	 * 6.前端框架
 	 * 7.其他
 	 */
-	private int zoneId;
+	private Integer zoneId;
 	private String contain;
 	private String time;
 
@@ -52,11 +52,12 @@ public class LunaLearnNote implements Serializable{
 		this.introduction = introduction;
 	}
 
-	public int getZoneId() {
+
+	public Integer getZoneId() {
 		return zoneId;
 	}
 
-	public void setZoneId(int zoneId) {
+	public void setZoneId(Integer zoneId) {
 		this.zoneId = zoneId;
 	}
 

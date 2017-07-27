@@ -30,7 +30,8 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	})
 	.state("PageTab.log", {
 		url: "/log",
-		templateUrl: "view/frontview/log.jsp"
+		templateUrl: "view/frontview/log.jsp",
+		controller:"logController"
 	})
 	.state("PageTab.leavewords", {
 		url: "/leavewords",
@@ -181,7 +182,7 @@ myApp.controller('learnNoteController', function($scope, $http){
 	        	 }
 	        	 for(var i=0;i<data.length;i++){
 	        		 appenddate=appenddate+'<li>'
-	        			 +'<a href="#"  target="view_window">'
+	        			 +'<a href="getLearnNoteDetial.do?id='+datap[i].id+'"  target="view_window">'
 	        			 +'<div class="contain_text_in">'
 	        			 +'<h1>'+data[i].title+'</h1><p>'+data[i].introduction+'</p></div></a></li>';
 	        	 }
@@ -189,6 +190,45 @@ myApp.controller('learnNoteController', function($scope, $http){
 	          });
 	}
 	
+});
+//日志查看分页等
+myApp.controller('logController', function($scope, $http){
+	$scope.hidden=true;
+	$scope.navitClick=5;
+	$http({
+        method : 'POST',
+        url:'getLunaLog.do?currentPage=1',
+        headers : {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+          }}).success(function (data) {
+        	  if(data.length<4){
+	        		 $scope.hidden=false;
+	        	 }
+		$scope.lunaLoglist = data;
+		
+		});
+	var currentPage=1;
+	$scope.addList=function(){
+		currentPage++;
+		$http({
+	        method : 'POST',
+	        url:'getLunaLog.do?currentPage='+currentPage,
+	        headers : {
+	            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+	          }}).success(function (data) {
+	        	 var appenddate="";
+	        	 if(data.length<4){
+	        		 $scope.hidden=false;
+	        	 }
+	        	 for(var i=0;i<data.length;i++){
+	        		 appenddate=appenddate+'<li>'
+        			 +'<a href="#"  target="view_window">'
+        			 +'<div class="contain_text_in">'
+        			 +'<h1>'+data[i].title+'</h1><p>'+data[i].introduction+'</p></div></a></li>';
+	        	 }
+	        	 angular.element(document.querySelector('#danceul')).append(appenddate);					
+	          });
+	}	
 });
 
 

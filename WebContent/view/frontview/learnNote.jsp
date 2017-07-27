@@ -27,7 +27,7 @@
 		<div class="contain_main">
 				<ul class="contain_text_ul" id="learnNoteUl">
 					<li ng-repeat="lunaLearnNote in lunaLearnNotelist">
-					<a href="#" >
+					<a href="getLearnNoteDetial.do?id={{lunaLearnNote.id}}" target="view_window">
 						<div class="contain_text_in">
 						<h1>{{lunaLearnNote.title}}</h1>
 						<p>{{lunaLearnNote.introduction}}</p>

@@ -30,7 +30,7 @@
 							<a href="">照片</a>
 						</dd>
 						<dd>
-							<a href="">日志</a>
+							<a href="upLearnLog.do">日志</a>
 						</dd>
 						<dd>
 							<a href="upHandWork.do">手工</a>

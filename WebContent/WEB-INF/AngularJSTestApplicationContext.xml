@@ -38,4 +38,14 @@
 
 
 
+
+
+
+
+
+<bean id="lunaLogDao" class="com.luna.myblog.dao.impl.LunaLogDaoImpl">
+	<property name="sessionFactory" ref="sessionFactory"/>
+</bean>
+
+
 </beans>

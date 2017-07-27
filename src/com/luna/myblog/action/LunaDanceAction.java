@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +28,8 @@ import net.sf.json.JSONArray;
 
 @Controller
 public class LunaDanceAction {
-	LunaDanceService lunaDanceService = new LunaDanceServiceImpl();
+	@Autowired
+	private LunaDanceService lunaDanceService ;
 	
 	@RequestMapping("/getLunaDance")
 	public void getLunaDance(HttpServletRequest request, HttpServletResponse response) {
@@ -82,6 +84,15 @@ public class LunaDanceAction {
 			lunaDanceService.addld(lunaDance);
 			return modelAndView;
 	}
+	public LunaDanceService getLunaDanceService() {
+		return lunaDanceService;
+	}
+	public void setLunaDanceService(LunaDanceService lunaDanceService) {
+		this.lunaDanceService = lunaDanceService;
+	}
 	
 
+	
+	
+	
 }

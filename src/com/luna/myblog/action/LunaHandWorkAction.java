@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +27,8 @@ import net.sf.json.JSONArray;
 
 @Controller
 public class LunaHandWorkAction {
-	LunaHandWrokService lunaHandWrokService=new LunaHandWrokServiceImpl();	
+	@Autowired
+	private LunaHandWrokService lunaHandWrokService;	
 	@RequestMapping("/getLunaHandWork")
 	public void getLunaHandWork(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		Integer currentPage = Integer.parseInt(request.getParameter("currentPage"));
@@ -65,5 +67,13 @@ public class LunaHandWorkAction {
 		lunaHandWrokService.addld(lunaHandWork);
 		return modelAndView;
 	}
+	public LunaHandWrokService getLunaHandWrokService() {
+		return lunaHandWrokService;
+	}
+	public void setLunaHandWrokService(LunaHandWrokService lunaHandWrokService) {
+		this.lunaHandWrokService = lunaHandWrokService;
+	}
+	
+	
 	
 }

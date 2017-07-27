@@ -12,32 +12,11 @@
 			</form>		
 		</div>
 		<div class="contain_main">
-				<ul class="contain_text_ul">
-					<li><a href="#" >
+				<ul class="contain_text_ul" id="danceul">
+					<li ng-repeat="lunaLog in lunaLoglist"><a href="#" >
 						<div class="contain_text_in">
-						<h1>Spring核心特性</h1>
-						<p>一些简介而已</p>
-						</div>
-						</a>
-					</li>
-					<li><a href="#" >
-						<div class="contain_text_in">
-						<h1>Spring核心特性</h1>
-						<p>一些简介而已</p>
-						</div>
-						</a>
-					</li>
-					<li><a href="#" >
-						<div class="contain_text_in">
-						<h1>Spring核心特性</h1>
-						<p>一些简介而已</p>
-						</div>
-						</a>
-					</li>
-					<li><a href="#" >
-						<div class="contain_text_in">
-						<h1>Spring核心特性</h1>
-						<p>一些简介而已</p>
+						<h1>{{lunaLog.title}}</h1>
+						<p>{{lunaLog.introduction}}</p>
 						</div>
 						</a>
 					</li>
@@ -45,5 +24,4 @@
 			</div>
 			
 		</div>
-		<div class="jiazai"><a href="#">加 载...</a></div>
-		<!--中间内容部分结束-->
+		<div class="jiazai {{hidden?'':'thishidden'}}" ><a  ng-click="addList()">加 载...</a></div>
