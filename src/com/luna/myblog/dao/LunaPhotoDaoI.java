@@ -6,22 +6,6 @@ import com.luna.myblog.entity.LunaDance;
 import com.luna.myblog.entity.LunaPhoto;
 import com.luna.myblog.entity.Pager;
 
-public interface LunaPhotoDaoI{
-	/**
-	 * 查看每页舞蹈
-	 * @param pager
-	 * @return
-	 */
-	public List<LunaPhoto> queryLunaPhotoPage(Pager pager);
-	/**
-	 * 增加舞蹈
-	 * @param ludan
-	 * @throws Exception
-	 */
-	public void addLunaPhoto(LunaPhoto lup);
+public interface LunaPhotoDaoI extends BaseDaoI<LunaPhoto>{
 	
-	public int totalPage();
-	public void deleteLunaPhoto(LunaPhoto lup);
-	public List<LunaPhoto> queryAll();
-	public LunaPhoto query(Integer id);
 }

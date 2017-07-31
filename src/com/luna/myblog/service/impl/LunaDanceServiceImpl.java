@@ -34,11 +34,7 @@ public class LunaDanceServiceImpl implements LunaDanceService{
 		
 	}
 
-	@Override
-	public void deleteLd(LunaDance lunadance) {
-		lunaDanceDao.delete(lunadance);
-		
-	}
+
 
 	@Override
 	public List<LunaDance> queryAllDance() {

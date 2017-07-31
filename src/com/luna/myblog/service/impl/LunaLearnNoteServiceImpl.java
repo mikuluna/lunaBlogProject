@@ -37,11 +37,15 @@ public class LunaLearnNoteServiceImpl implements LunaLearnNoteService {
 		List<LunaLearnNote> list=lunaLearnNoteDao.findAll();
 		return list;
 	}
+	public List<LunaLearnNote> queryAllLearnNoteByZoneId(Integer zoneId) {
+		List<LunaLearnNote> list=lunaLearnNoteDao.findByProperty("LunaLearnNote","zoneId",zoneId);
+		return list;
+	}
 
 	@Override
 	public void deleteById(Integer id) {
 		LunaLearnNote lunaLearnNote=(LunaLearnNote) lunaLearnNoteDao.findById(LunaLearnNote.class, id);
-		lunaLearnNoteDao.delete(lunaLearnNote);
+		lunaLearnNoteDao.delete("LunaLearnNote",id);
 
 	}
 

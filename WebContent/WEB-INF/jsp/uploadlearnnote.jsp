@@ -20,7 +20,7 @@
 		<div class="contain_all">
 			<div class="login-top"><h1>学习笔记上传</h1></div>
 			<section id="editor">
-				<form action="" method="post">
+				<form action="uploadLearnNote.do" method="post">
 					<div class="login-contain">
 						<label class="layui-form-label">标题</label>
 						<div class="layui-input-block">

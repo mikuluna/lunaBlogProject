@@ -12,6 +12,8 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=path %>/css/layui.css" />
 <link rel="stylesheet" href="<%=path %>/css/upload.css" />
+
+
 </head>
 <body>
 <div class="login-fullmain">

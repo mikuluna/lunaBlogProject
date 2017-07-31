@@ -10,6 +10,7 @@ public class LunaPhoto implements Serializable {
 	private String title;
 	private String intro;
 	private String time;
+	private String imgFace;
 	private Set<LunaPhotoDetial> lunaphodet = new HashSet<LunaPhotoDetial>();
 
 	public String getTime() {
@@ -50,6 +51,14 @@ public class LunaPhoto implements Serializable {
 
 	public void setLunaphodet(Set<LunaPhotoDetial> lunaphodet) {
 		this.lunaphodet = lunaphodet;
+	}
+
+	public String getImgFace() {
+		return imgFace;
+	}
+
+	public void setImgFace(String imgFace) {
+		this.imgFace = imgFace;
 	}
 
 }

@@ -43,7 +43,7 @@ public class LunaHandWrokServiceImpl implements LunaHandWrokService{
 	@Override
 	public void deleteById(Integer id) {
 		LunaHandWork lunaHandWork = (LunaHandWork) lunaHandWorkDao.findById(LunaHandWork.class, id);
-		lunaHandWorkDao.delete(lunaHandWork);
+		lunaHandWorkDao.delete("LunaHandWork",id);
 		
 	}
 

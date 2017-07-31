@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import com.luna.myblog.dao.BaseDaoI;
 import com.luna.myblog.entity.Pager;
@@ -30,10 +31,16 @@ public class BaseDaoImpl<T> implements BaseDaoI<T> {
 		
 	}
 
-	@Override
+	
+	public void delete(String className,Integer id) {
+		getSession().beginTransaction();
+		getSession().delete(id);
+		
+		getSession().beginTransaction().commit();
+	}
+	
 	public void delete(T instance) {
 		getSession().delete(instance);
-		
 	}
 
 	@Override

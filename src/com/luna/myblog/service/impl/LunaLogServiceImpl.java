@@ -21,7 +21,6 @@ public class LunaLogServiceImpl implements LunaLogService {
 
 	@Override
 	public Integer totalPage() {
-		
 		return lunaLogDao.totalPage("LunaLog", null, null,4);
 	}
 
@@ -38,8 +37,9 @@ public class LunaLogServiceImpl implements LunaLogService {
 
 	@Override
 	public void deleteById(Integer id) {
-		LunaLog lunaLog = (LunaLog)lunaLogDao.findById(LunaLog.class, id);
-		lunaLogDao.delete(lunaLog);
+		LunaLog instance = (LunaLog)lunaLogDao.findById(LunaLog.class, id);
+		lunaLogDao.delete(instance);
+		
 
 	}
 

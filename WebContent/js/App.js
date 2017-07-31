@@ -26,7 +26,8 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 		})
 	.state("PageTab.photo", {
 		url: "/photo",
-		templateUrl: "view/frontview/photo.jsp"
+		templateUrl: "view/frontview/photo.jsp",
+		controller:"photoController"
 	})
 	.state("PageTab.log", {
 		url: "/log",
@@ -225,6 +226,44 @@ myApp.controller('logController', function($scope, $http){
         			 +'<a href="#"  target="view_window">'
         			 +'<div class="contain_text_in">'
         			 +'<h1>'+data[i].title+'</h1><p>'+data[i].introduction+'</p></div></a></li>';
+	        	 }
+	        	 angular.element(document.querySelector('#danceul')).append(appenddate);					
+	          });
+	}	
+});
+
+
+//照片查看分页等
+myApp.controller('photoController', function($scope, $http){
+	$scope.hidden=true;
+	$scope.navitClick=5;
+	$http({
+        method : 'POST',
+        url:'getLunaPhoto.do?currentPage=1',
+        headers : {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+          }}).success(function (data) {
+        	  if(data.length<6){
+	        		 $scope.hidden=false;
+	        	 }
+		$scope.lunaPhotolist = data;
+		
+		});
+	var currentPage=1;
+	$scope.addList=function(){
+		currentPage++;
+		$http({
+	        method : 'POST',
+	        url:'getLunaPhoto.do?currentPage='+currentPage,
+	        headers : {
+	            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+	          }}).success(function (data) {
+	        	 var appenddate="";
+	        	 if(data.length<6){
+	        		 $scope.hidden=false;
+	        	 }
+	        	 for(var i=0;i<data.length;i++){
+	        		 
 	        	 }
 	        	 angular.element(document.querySelector('#danceul')).append(appenddate);					
 	          });

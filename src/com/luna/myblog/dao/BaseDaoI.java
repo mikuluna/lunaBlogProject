@@ -15,6 +15,7 @@ import com.luna.myblog.entity.Pager;
 public interface BaseDaoI<T> {
 	public Session getSession();
 	public void save(T instances);
+	public void delete(String className,Integer id);
 	public void delete(T instance);
 	public void update(T instance);
 	public Object findById(Class className,Integer id);

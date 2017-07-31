@@ -3,6 +3,9 @@ package com.luna.myblog.tool;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -38,4 +41,35 @@ public class UploadFile {
 		System.out.println("文件成功上传到指定目录下");
 		return trueFileName;
 	}
+	/**
+     * 批量上传文件 返回值为文件的新名字 UUID.randomUUID()+originalFilename
+     * @param multipartFiles
+     * @param request
+     * @return
+     * @throws IllegalStateException
+     * @throws IOException
+     */
+    public static List<String> uploadFileList(MultipartFile multipartFiles[], HttpServletRequest request) throws IllegalStateException, IOException {
+        List<String>newFileNames=new ArrayList<String>();
+   
+            for(MultipartFile multipartFile:multipartFiles){
+                //文件的原始名称
+                String originalFilename=multipartFile.getOriginalFilename();
+                String newFileName=null;
+                if (multipartFile!=null&&originalFilename!=null&&originalFilename.length()>0){
+
+//                    newFileName= UUID.randomUUID()+originalFilename;
+                    newFileName=String.valueOf(System.currentTimeMillis()) + originalFilename;
+                    //存储图片的物理路径
+                    String pic_path = request.getSession().getServletContext().getRealPath("/upload/photos");
+                    //新图片路径
+                    File targetFile = new File(pic_path, newFileName);
+                    //内存数据读入磁盘
+                    multipartFile.transferTo(targetFile);
+                    newFileNames.add(newFileName);
+                }
+
+        }
+        return newFileNames;
+    }
 }

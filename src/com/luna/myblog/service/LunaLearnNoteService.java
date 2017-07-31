@@ -10,6 +10,7 @@ public interface LunaLearnNoteService {
 	public Integer totalPage();
 	public void addld(LunaLearnNote lunadance);
 	public List<LunaLearnNote>queryAllLearnNote();
+	public List<LunaLearnNote> queryAllLearnNoteByZoneId(Integer zoneId);
 	public void deleteById(Integer id);
 	public LunaLearnNote queryById(Integer id);
 	public List<LunaLearnNote> queryLearnNoteByPage(Pager page,Integer zoneId);

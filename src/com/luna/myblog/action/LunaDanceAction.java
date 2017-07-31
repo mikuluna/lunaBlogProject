@@ -50,7 +50,7 @@ public class LunaDanceAction {
 		try {
 			response.getWriter().print(lunaJson);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 

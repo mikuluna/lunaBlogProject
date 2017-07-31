@@ -24,10 +24,10 @@
 							<a href="updance.do">舞蹈</a>
 						</dd>
 						<dd>
-							<a href="">学习笔记</a>
+							<a href="upLearnNote.do">学习笔记</a>
 						</dd>
 						<dd>
-							<a href="">照片</a>
+							<a href="upPhoto.do">照片</a>
 						</dd>
 						<dd>
 							<a href="upLearnLog.do">日志</a>
@@ -44,13 +44,13 @@
 							<a  href="upIndexDance.do">舞蹈</a>
 						</dd>
 						<dd>
-							<a href="">学习笔记</a>
+							<a href="upIndexLearnNote.do">学习笔记</a>
 						</dd>
 						<dd>
 							<a href="">照片</a>
 						</dd>
 						<dd>
-							<a href="">日志</a>
+							<a href="upIndexLog.do">日志</a>
 						</dd>
 						<dd>
 							<a href="upIndexHandWork.do">手工</a>

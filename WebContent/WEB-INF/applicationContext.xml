@@ -54,8 +54,10 @@
 <!-- 声明式容器事务管理 ,transaction-manager指定事务管理器为transactionManager -->
 <tx:advice id="txAdvice" transaction-manager="transactionManager">
 <tx:attributes>
-<tx:method name="add*" propagation="REQUIRED" />
-<tx:method name="get*" propagation="REQUIRED" />
+ <tx:method name="get*" propagation="REQUIRED"/>  
+ <tx:method name="delete*" propagation="REQUIRED"/>  
+ <tx:method name="update*" propagation="REQUIRED" />  
+ <tx:method name="add*" propagation="REQUIRED" />  
 <tx:method name="*" read-only="true" />
 </tx:attributes>
 </tx:advice>
@@ -77,6 +79,9 @@
 	<property name="sessionFactory" ref="sessionFactory"/>
 </bean>
 <bean id="lunaLearnNoteDao" class="com.luna.myblog.dao.impl.LunaLearnNoteDaoImpl">
+	<property name="sessionFactory" ref="sessionFactory"/>
+</bean>
+<bean id="lunaPhotoDao" class="com.luna.myblog.dao.impl.LunaPhotoDaoImpl">
 	<property name="sessionFactory" ref="sessionFactory"/>
 </bean>
 

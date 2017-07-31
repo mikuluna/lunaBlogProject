@@ -1,81 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<% String path=request.getContextPath(); %>
 		<!--中间内容部分开始-->
 		<div class="photo_contain_main">
 			<ul>
-				<li class="photo">
+				<li class="photo" ng-repeat="lunaPhoto in lunaPhotolist">
 					<a href="#">
 						<div class="cover">
-							<img src="img/1780.jpg" />
+							<img class="coverphoto" src="<%=path %>/upload/photos/{{lunaPhoto.imgFace}}" />
 						</div>
 						<div class="imgtitle">
-							<h1>「1」</h1>
+							<h1>「{{lunaPhoto.title}}」</h1>
 						</div>
 					</a>
 				</li>
-				<li class="photo">
-					<a href="#">
-						<div class="cover">
-							<img src="img/1780.jpg" />
-						</div>
-						<div class="imgtitle">
-							<h1>「2」</h1>
-						</div>
-					</a>
-				</li>
-				<li class="photo">
-					<a href="#">
-						<div class="cover">
-							<img src="img/1780.jpg" />
-						</div>
-						<div class="imgtitle">
-							<h1>「3」</h1>
-						</div>
-					</a>
-				</li>
-				<li class="photo">
-					<a href="#">
-						<div class="cover">
-							<img src="img/1780.jpg" />
-						</div>
-						<div class="imgtitle">
-							<h1>「4」</h1>
-						</div>
-					</a>
-				</li>
-				<li class="photo">
-					<a href="#">
-						<div class="cover">
-							<img src="img/1780.jpg" />
-						</div>
-						<div class="imgtitle">
-							<h1>「5」</h1>
-						</div>
-					</a>
-				</li>
-				<li class="photo">
-					<a href="#">
-						<div class="cover">
-							<img src="img/1780.jpg" />
-						</div>
-						<div class="imgtitle">
-							<h1>「6」</h1>
-						</div>
-					</a>
-				</li>
-				<li class="photo">
-					<a href="#">
-						<div class="cover">
-							<img src="img/1780.jpg" />
-						</div>
-						<div class="imgtitle">
-							<h1>「dfsfsdf」</h1>
-						</div>
-					</a>
-				</li>
+				
 				<div style="clear: both;"></div>
 			</ul>
 		</div>
-		<div class="jiazai"><a href="#">加 载...</a></div>
+		<div class="jiazai {{hidden?'':'thishidden'}}" ><a  ng-click="addList()">加 载...</a></div>
+				
