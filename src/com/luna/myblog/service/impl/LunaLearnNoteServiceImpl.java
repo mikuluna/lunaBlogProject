@@ -45,7 +45,7 @@ public class LunaLearnNoteServiceImpl implements LunaLearnNoteService {
 	@Override
 	public void deleteById(Integer id) {
 		LunaLearnNote lunaLearnNote=(LunaLearnNote) lunaLearnNoteDao.findById(LunaLearnNote.class, id);
-		lunaLearnNoteDao.delete("LunaLearnNote",id);
+		lunaLearnNoteDao.delete(lunaLearnNote);
 
 	}
 

@@ -34,6 +34,11 @@ public class LunaPhotoServiceImpl implements LunaPhotoService {
 	public List<LunaPhoto> queryAllDance() {
 		return lunaPhotoDao.findAll();
 	}
+	@Override
+	public LunaPhoto queryById(Integer id) {
+		return (LunaPhoto) lunaPhotoDao.findById(LunaPhoto.class, id);
+	}
+	
 
 	@Override
 	public void deleteById(Integer id) {
@@ -48,5 +53,7 @@ public class LunaPhotoServiceImpl implements LunaPhotoService {
 	public void setLunaPhotoDao(LunaPhotoDaoI lunaPhotoDao) {
 		this.lunaPhotoDao = lunaPhotoDao;
 	}
+
+	
 
 }

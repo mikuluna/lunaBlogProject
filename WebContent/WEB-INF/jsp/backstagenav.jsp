@@ -11,10 +11,7 @@
 </head>
 <body>
 	<a href="clearSession.do">退出</a>
-	<a href="updance.do">上传舞蹈</a>
-	<a href="upIndexDance.do">查看舞蹈</a>
-	<a href="upHandWork.do">上传手工教程</a>
-	<a href="upIndexHandWork.do">查看手工教程</a>
+	
 	<div class="hou_top">
 			<ul class="layui-nav">
 				<li class="layui-nav-item layui-this">
@@ -47,7 +44,7 @@
 							<a href="upIndexLearnNote.do">学习笔记</a>
 						</dd>
 						<dd>
-							<a href="">照片</a>
+							<a href="upIndexPhoto.do">照片</a>
 						</dd>
 						<dd>
 							<a href="upIndexLog.do">日志</a>

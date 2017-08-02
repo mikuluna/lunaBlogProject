@@ -13,7 +13,8 @@
 		</div>
 		<div class="contain_main">
 				<ul class="contain_text_ul" id="danceul">
-					<li ng-repeat="lunaLog in lunaLoglist"><a href="#" >
+					<li ng-repeat="lunaLog in lunaLoglist">
+					<a href="getLogDetial.do?id={{lunaLog.id}}" target="view_window">
 						<div class="contain_text_in">
 						<h1>{{lunaLog.title}}</h1>
 						<p>{{lunaLog.introduction}}</p>

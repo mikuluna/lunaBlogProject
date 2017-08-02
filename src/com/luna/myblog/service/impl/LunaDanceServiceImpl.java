@@ -42,7 +42,7 @@ public class LunaDanceServiceImpl implements LunaDanceService{
 		return list;
 	}
 	public void deleteById(Integer id){
-		LunaDance lunaDance = (LunaDance) lunaDanceDao.findById(LunaLog.class, id);
+		LunaDance lunaDance = (LunaDance) lunaDanceDao.findById(LunaDance.class, id);
 		lunaDanceDao.delete(lunaDance);
 	}
 

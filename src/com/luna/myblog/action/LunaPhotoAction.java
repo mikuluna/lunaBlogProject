@@ -7,17 +7,20 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.luna.myblog.entity.LunaDance;
+import com.luna.myblog.entity.LunaLog;
 import com.luna.myblog.entity.LunaPhoto;
 import com.luna.myblog.entity.LunaPhotoDetial;
 import com.luna.myblog.entity.Pager;
@@ -56,7 +59,14 @@ public class LunaPhotoAction {
 		}
 
 	}
-	
+	@RequestMapping("/getPhotoDetial")
+	public void getLearnNoteDetial(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		LunaPhoto lunaPhoto = lunaPhotoService.queryById(id);
+		request.setAttribute("lunaPhoto", lunaPhoto);
+		System.out.println(lunaPhoto.getLunaphodet().toString());
+		request.getRequestDispatcher("view/frontview/photodetial.jsp").forward(request, response);
+	}
 	
 	@RequestMapping("/upPhoto")
 	public ModelAndView form() {
@@ -79,4 +89,29 @@ public class LunaPhotoAction {
 		lunaPhotoService.addld(lunaPhoto);
 		return modelAndView;
 	}
+	@RequestMapping(value = "/upIndexPhoto")
+	public String indexDance(Model model) throws ServletException, IOException {
+	List<LunaPhoto> ludanList = lunaPhotoService.queryAllDance();
+	model.addAttribute("lunaPhotoList", ludanList);
+	return "/query/queryPhoto";
+    }
+	@RequestMapping(value = "/deletePhoto")
+	public String deleteDance(HttpServletRequest request,Model model) throws ServletException, IOException{
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		lunaPhotoService.deleteById(id);
+		List<LunaPhoto> ludanList = lunaPhotoService.queryAllDance();
+		model.addAttribute("lunaPhotoList", ludanList);
+		return "/query/queryPhoto";
+	}
+
+
+	public LunaPhotoService getLunaPhotoService() {
+		return lunaPhotoService;
+	}
+
+
+	public void setLunaPhotoService(LunaPhotoService lunaPhotoService) {
+		this.lunaPhotoService = lunaPhotoService;
+	}
+	
 }

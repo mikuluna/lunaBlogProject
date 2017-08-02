@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.luna.myblog.entity.LunaLearnNote;
 import com.luna.myblog.entity.LunaLog;
 import com.luna.myblog.entity.Pager;
 import com.luna.myblog.service.LunaLogService;
@@ -40,7 +41,13 @@ public class LunaLogAction {
         ModelAndView modelAndView = new ModelAndView("uploadlog", "lunalog", new LunaLog());
         return modelAndView;
     }
-	
+	@RequestMapping("/getLogDetial")
+	public void getLearnNoteDetial(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		LunaLog lunaLog = lunaLogService.queryById(id);
+		request.setAttribute("lunaLog", lunaLog);
+		request.getRequestDispatcher("view/frontview/logDetial.jsp").forward(request, response);
+	}
 	@RequestMapping("/uploadLog")
 	public ModelAndView uploadLog(LunaLog lunaLog, HttpServletRequest request){
 		ModelAndView modelAndView = new ModelAndView("uploadlog");

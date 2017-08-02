@@ -24,7 +24,7 @@ public class UploadFile {
 				if ("GIF".equals(type.toUpperCase()) || "PNG".equals(type.toUpperCase())
 						|| "JPG".equals(type.toUpperCase())) {
 					// 项目在容器中实际发布运行的根路径
-					String realPath = request.getSession().getServletContext().getRealPath("/") + "upload/";
+					String realPath = request.getSession().getServletContext().getRealPath("/") + "lunaimg/";
 					// 自定义的文件名称
 					trueFileName = String.valueOf(System.currentTimeMillis()) + fileName;
 					// 设置存放图片文件的路径
@@ -61,7 +61,7 @@ public class UploadFile {
 //                    newFileName= UUID.randomUUID()+originalFilename;
                     newFileName=String.valueOf(System.currentTimeMillis()) + originalFilename;
                     //存储图片的物理路径
-                    String pic_path = request.getSession().getServletContext().getRealPath("/upload/photos");
+                    String pic_path = request.getSession().getServletContext().getRealPath("/lunaimg/photos");
                     //新图片路径
                     File targetFile = new File(pic_path, newFileName);
                     //内存数据读入磁盘

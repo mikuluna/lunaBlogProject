@@ -11,4 +11,5 @@ public interface LunaPhotoService {
 	public void addld(LunaPhoto lunaPhoto);
 	public List<LunaPhoto>queryAllDance();
 	public void deleteById(Integer id);
+	public LunaPhoto queryById(Integer id);
 }

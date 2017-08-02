@@ -17,6 +17,7 @@
 </style>
 </head>
 <body>
+<jsp:include page="backstagenav.jsp" flush="true"/>
 	<div class="login-fullmain">
 			<div class="login-top"><h1>照片上传</h1></div>
 			<div style="display:none">

@@ -8,23 +8,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>${lunaLearnNote.title }</title>
+<title>${lunaLog.title }</title>
 <link rel="stylesheet" href="<%=path %>/css/detial.css" />
 </head>
 <body>
 <div class="leanrnNotedetial_contain_main">
-			<div class="pd_title"><h1>${lunaLearnNote.title }</h1>
-				<p class="time">${lunaLearnNote.time }</p>
+			<div class="pd_title"><h1>${lunaLog.title }</h1>
+				<p class="time">${lunaLog.time }</p>
 			</div>
 			<div class="jianjie">
 			<div class=" pd_p">
 				<p>简介</p>
-				<p>${lunaLearnNote.introduction }</p>
+				<p>${lunaLog.introduction }</p>
 			</div>
 			</div>
 			<div class="detial_contain">
 				<div class="learnNotesomedetial">
-				${lunaLearnNote.contain}
+				${lunaLog.contain}
 				</div>
 				</div>
 		</div>

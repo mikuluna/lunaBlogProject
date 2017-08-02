@@ -11,7 +11,7 @@
 					<div class="dance_contain_my">
 						<a href="{{lunaHandWork.handWorkUrl}}" target="view_window" class="dance_click" title="{{lunaHandWork.title}}">
 						<div class="mydanceimg">
-							<img src="<%=path %>/upload/{{lunaHandWork.faceimg}}"/>
+							<img src="<%=path %>/lunaimg/{{lunaHandWork.faceimg}}"/>
 						</div>
 						<div class="mydancetitle" >
 							<h1>{{lunaHandWork.title}}</h1>

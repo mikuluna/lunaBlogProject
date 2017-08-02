@@ -7,7 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class LunaDance implements Serializable{
 	private static final long serialVersionUID = 1L;
 	//自增长id
-	private int id;
+	private Integer id;
 	//封面地址
 	private String imgFace;
 	//舞蹈链接
@@ -23,14 +23,14 @@ public class LunaDance implements Serializable{
 		this.danceTitle = danceTitle;
 	}
 
-	public int getId() {
+	
+
+	public Integer getId() {
 		return id;
 	}
-
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-
 	public String getImgFace() {
 		return imgFace;
 	}

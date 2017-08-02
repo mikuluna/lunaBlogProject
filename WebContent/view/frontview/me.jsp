@@ -6,11 +6,11 @@
 			<div class="contain_my_title">
 			<img src="img/touxiang.png" />
 			<h1>诗小轩</h1>
-			<p>一个元气不衰减，一直不断努力的孩子，也许终有一天能成为一个厉害的人 <span  onclick="supOnclick()">www</span></p>
+			<p>一个元气不衰减，一直不断努力的孩子，也许终有一天能成为一个厉害的人 <span>www</span></p>
 			<p>微博地址：<a href="http://www.weibo.com/2462058527/" target="view_window">@诗小轩luna</a></p>
 			<br />
 			<br/>
-			<p>希望自己能变得越来越好，做越来越多的项目w</p>
+			<p>希望自己能变得越来越好，做越来越多的项目 <span  ng-click="supOnclick()">w</span></p>
 			<p></p>
 			<p>诗小轩，一个喜欢跳舞，偶尔cos，喜欢手工，充满无限正能量的孩子</p>
 			<br />
@@ -18,6 +18,7 @@
 			<p>如果可以的话</p>
 			<p>请往下看</p>
 			<br/>
+			<a class="{{addToBack?'':'thishidden'}}" href="tobackstag.jsp">小轩专用管理通道</a>
 		</div>
 			
 		<div style="clear: both;"></div>
@@ -36,7 +37,7 @@
 				<h2><a href="http://space.bilibili.com/565389/" target="view_window">读取存档</a></h2>
 			</div>
 			<div class="myhobbycontain">
-				<h2><a href="" target="view_window">关于我</a></h2>
+				<h2><a href="https://github.com/mikuluna" target="view_window">关于我</a></h2>
 			</div>
 			<div class="myhobbycontain">
 				<h2><a href="exit.html">退出</a></h2>

@@ -45,10 +45,18 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	});
 });
 myApp.controller('mainController', function($scope){
-	$scope.navClick=1;
+	var count = 1;
+	$scope.addToBack=false;
+	$scope.supOnclick=function(){
+		count++;
+		if(count==10){
+			$scope.addToBack = true;
+		}
+	}
 });
 
 myApp.controller('danceController', function($scope, $http){
+	$scope.navClick=2;
 	$scope.hidden=true;
 	$http({
         method : 'POST',
@@ -116,7 +124,7 @@ myApp.controller('handWorkController', function($scope, $http){
 	        	 for(var i=0;i<data.length;i++){
 	        		 appenddate=appenddate+'<li><div class="dance_contain_my">'
 	        			 +'<a href="'+data[i].handWorkUrl+'" class="dance_click" title="'+data[i].title+'" target="view_window">'
-	        			 +'<div class="mydanceimg"><img src="'+data[i].faceimg+'"/>'
+	        			 +'<div class="mydanceimg"><img src="<%=path %>/upload/'+data[i].faceimg+'"/>'
 	        			 +'</div><div class="mydancetitle" ><h1>'+data[i].danceTitle+'</h1><p>'+data[i].uploadDate+'</p></div></a></div></li>';
 	        	 }
 	        	 angular.element(document.querySelector('#danceul')).append(appenddate);					
@@ -183,7 +191,7 @@ myApp.controller('learnNoteController', function($scope, $http){
 	        	 }
 	        	 for(var i=0;i<data.length;i++){
 	        		 appenddate=appenddate+'<li>'
-	        			 +'<a href="getLearnNoteDetial.do?id='+datap[i].id+'"  target="view_window">'
+	        			 +'<a href="getLearnNoteDetial.do?id='+data[i].id+'"  target="view_window">'
 	        			 +'<div class="contain_text_in">'
 	        			 +'<h1>'+data[i].title+'</h1><p>'+data[i].introduction+'</p></div></a></li>';
 	        	 }
@@ -195,7 +203,7 @@ myApp.controller('learnNoteController', function($scope, $http){
 //日志查看分页等
 myApp.controller('logController', function($scope, $http){
 	$scope.hidden=true;
-	$scope.navitClick=5;
+	
 	$http({
         method : 'POST',
         url:'getLunaLog.do?currentPage=1',
@@ -223,7 +231,7 @@ myApp.controller('logController', function($scope, $http){
 	        	 }
 	        	 for(var i=0;i<data.length;i++){
 	        		 appenddate=appenddate+'<li>'
-        			 +'<a href="#"  target="view_window">'
+        			 +'<a href="getLogDetial.do?id='+data[i].id+'"  target="view_window">'
         			 +'<div class="contain_text_in">'
         			 +'<h1>'+data[i].title+'</h1><p>'+data[i].introduction+'</p></div></a></li>';
 	        	 }
@@ -263,7 +271,9 @@ myApp.controller('photoController', function($scope, $http){
 	        		 $scope.hidden=false;
 	        	 }
 	        	 for(var i=0;i<data.length;i++){
-	        		 
+	        		 appenddate=appenddate+'<li class="photo"><a href="getPhotoDetial.do?id='+data[i].id+'"><div class="cover">'
+	        		 +'<img class="coverphoto" src="<%=path %>/upload/photos/'+data[i].imgFace
+	        		 +'" /></div><div class="imgtitle"><h1>「'+data[i].title+'」</h1></div></a></li>'
 	        	 }
 	        	 angular.element(document.querySelector('#danceul')).append(appenddate);					
 	          });

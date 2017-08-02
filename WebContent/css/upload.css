@@ -103,9 +103,16 @@
 			.deletestep:hover {
 				color: pink;
 				cursor: hand;
-}	
-.myimgpreview{
-height:150px;
-width:300px;
-float:left;
-}
+			}	
+			.myimgpreview{
+				height:150px;
+				width:300px;
+				float:left;
+			}
+			.contain_all {
+				width: 800px;
+				margin: 0 auto;
+				text-align: center;
+				position: relative;
+				margin-top: 50px;
+			}

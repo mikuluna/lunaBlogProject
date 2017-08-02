@@ -4,11 +4,11 @@
 <% String path=request.getContextPath(); %>
 		<!--中间内容部分开始-->
 		<div class="photo_contain_main">
-			<ul>
+			<ul id="danceul">
 				<li class="photo" ng-repeat="lunaPhoto in lunaPhotolist">
-					<a href="#">
+					<a href="getPhotoDetial.do?id={{lunaPhoto.id}}" target="view_window">
 						<div class="cover">
-							<img class="coverphoto" src="<%=path %>/upload/photos/{{lunaPhoto.imgFace}}" />
+							<img class="coverphoto" src="<%=path %>/lunaimg/photos/{{lunaPhoto.imgFace}}" />
 						</div>
 						<div class="imgtitle">
 							<h1>「{{lunaPhoto.title}}」</h1>
@@ -19,5 +19,6 @@
 				<div style="clear: both;"></div>
 			</ul>
 		</div>
+		<div style="clear: both;"></div>
 		<div class="jiazai {{hidden?'':'thishidden'}}" ><a  ng-click="addList()">加 载...</a></div>
 				
