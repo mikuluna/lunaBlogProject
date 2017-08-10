@@ -143,7 +143,7 @@ myApp.controller('learnNoteController', function($scope, $http){
         headers : {
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
           }}).success(function (data) {
-        	  if(data.length!=5){
+        	  if(data.length<5){
 	        		 $scope.hidden=false;
 	        	 }
         	  else{
@@ -152,6 +152,11 @@ myApp.controller('learnNoteController', function($scope, $http){
 		$scope.lunaLearnNotelist = data;
 		});
 	$scope.queryLearnNote=function(id){
+		currentPage=1;
+		var addlunaList = angular.element(".addlunaList");
+		if(addlunaList.length>0){
+			addlunaList.remove();
+		}
 		zoneId=id;
 		$http({
 	        method : 'POST',
@@ -159,7 +164,8 @@ myApp.controller('learnNoteController', function($scope, $http){
 	        headers : {
 	            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
 	          }}).success(function (data) {
-	        	  if($scope.hiddenUp){
+	        	  var ihaveit = angular.element(".ihaveit");
+	        	  if($scope.hiddenUp||ihaveit.length!=5){
 	        		  if(data.length!=5){
 		        		 $scope.hidden=false;
 		        	 }else{
@@ -182,6 +188,7 @@ myApp.controller('learnNoteController', function($scope, $http){
 	            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
 	          }}).success(function (data) {
 	        	 var appenddate="";
+	        	 
 	        	 if(data.length!=5){
 	        		 $scope.hidden=false;
 	        		 $scope.hiddenUp=false;
@@ -189,8 +196,9 @@ myApp.controller('learnNoteController', function($scope, $http){
 	        	 else{
 	        		 $scope.hidden=true;
 	        	 }
+	        	
 	        	 for(var i=0;i<data.length;i++){
-	        		 appenddate=appenddate+'<li>'
+	        		 appenddate=appenddate+'<li class="addlunaList">'
 	        			 +'<a href="getLearnNoteDetial.do?id='+data[i].id+'"  target="view_window">'
 	        			 +'<div class="contain_text_in">'
 	        			 +'<h1>'+data[i].title+'</h1><p>'+data[i].introduction+'</p></div></a></li>';
