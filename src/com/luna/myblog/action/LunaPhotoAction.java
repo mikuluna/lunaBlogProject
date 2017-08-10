@@ -2,8 +2,8 @@ package com.luna.myblog.action;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.luna.myblog.entity.LunaDance;
-import com.luna.myblog.entity.LunaLog;
 import com.luna.myblog.entity.LunaPhoto;
 import com.luna.myblog.entity.LunaPhotoDetial;
 import com.luna.myblog.entity.Pager;
@@ -77,8 +75,9 @@ public class LunaPhotoAction {
 	@RequestMapping("/uploadPhoto")
 	public ModelAndView uploadPhoto(LunaPhoto lunaPhoto, HttpServletRequest request,@RequestParam("file") MultipartFile []files) throws IllegalStateException, IOException{
 		ModelAndView modelAndView = new ModelAndView("uploadPhoto");
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date date = new Date();
-		lunaPhoto.setTime(date.toLocaleString());
+		lunaPhoto.setTime(sdf.format(date));
 		List<String> fileNames =UploadFile.uploadFileList(files, request);
 		lunaPhoto.setImgFace(fileNames.get(0));
 		for(String fileName:fileNames){
@@ -96,8 +95,15 @@ public class LunaPhotoAction {
 	return "/query/queryPhoto";
     }
 	@RequestMapping(value = "/deletePhoto")
-	public String deleteDance(HttpServletRequest request,Model model) throws ServletException, IOException{
+	public String deletePhoto(HttpServletRequest request,Model model) throws ServletException, IOException{
 		Integer id = Integer.parseInt(request.getParameter("id"));
+		LunaPhoto lunaphoto = lunaPhotoService.queryById(id);
+		Set<LunaPhotoDetial> lpdFiles = lunaphoto.getLunaphodet();
+		for(LunaPhotoDetial lpd :lpdFiles){
+			String fileNamePath = request.getSession().getServletContext().getRealPath("/lunaimg/photos");
+			System.out.println(fileNamePath);
+			UploadFile.deleteFile(fileNamePath,lpd.getImg());
+		}
 		lunaPhotoService.deleteById(id);
 		List<LunaPhoto> ludanList = lunaPhotoService.queryAllDance();
 		model.addAttribute("lunaPhotoList", ludanList);

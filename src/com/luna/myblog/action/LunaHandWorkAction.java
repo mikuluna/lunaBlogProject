@@ -49,7 +49,10 @@ public class LunaHandWorkAction {
 	@RequestMapping("deletehandWork")
 	public String deletehandWork(Model model,HttpServletRequest request) throws ServletException, IOException{
 		Integer id = Integer.parseInt(request.getParameter("id"));
+		LunaHandWork lunaHandWork = lunaHandWrokService.queryById(id);
 		lunaHandWrokService.deleteById(id);
+		String fileNamePath = request.getSession().getServletContext().getRealPath("/") + "lunaimg/"+lunaHandWork.getFaceimg();
+		UploadFile.deleteFile(fileNamePath);
 		List<LunaHandWork> luhandList = lunaHandWrokService.queryAllDance();
 		model.addAttribute("luhandList", luhandList);
 		return "/query/queryHandWork";

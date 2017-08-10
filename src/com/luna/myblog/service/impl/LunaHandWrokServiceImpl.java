@@ -46,6 +46,9 @@ public class LunaHandWrokServiceImpl implements LunaHandWrokService{
 		lunaHandWorkDao.delete(lunaHandWork);
 		
 	}
+	public LunaHandWork queryById(Integer id){
+		return (LunaHandWork) lunaHandWorkDao.findById(LunaHandWork.class, id);
+	}
 
 	public LunaHandWorkDaoI getLunaHandWorkDao() {
 		return lunaHandWorkDao;

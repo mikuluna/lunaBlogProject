@@ -86,7 +86,7 @@ myApp.controller('danceController', function($scope, $http){
 	        	 for(var i=0;i<data.length;i++){
 	        		 appenddate=appenddate+'<li><div class="dance_contain_my">'
 	        			 +'<a href="'+data[i].danceUrl+'" class="dance_click" title="'+data[i].danceTitle+'" target="view_window">'
-	        			 +'<div class="mydanceimg"><img src="<%=path %>/upload/{{lunadance.imgFace}}"/>'
+	        			 +'<div class="mydanceimg"><img src="/lunaimg/'+data[i].imgFace+'"/>'
 	        			 +'</div><div class="mydancetitle" >'+data[i].danceTitle+'</div></a></div></li>';
 	        	 }
 	        	 angular.element(document.querySelector('#danceul')).append(appenddate);					
@@ -124,7 +124,7 @@ myApp.controller('handWorkController', function($scope, $http){
 	        	 for(var i=0;i<data.length;i++){
 	        		 appenddate=appenddate+'<li><div class="dance_contain_my">'
 	        			 +'<a href="'+data[i].handWorkUrl+'" class="dance_click" title="'+data[i].title+'" target="view_window">'
-	        			 +'<div class="mydanceimg"><img src="<%=path %>/upload/'+data[i].faceimg+'"/>'
+	        			 +'<div class="mydanceimg"><img src="/lunaimg/'+data[i].faceimg+'"/>'
 	        			 +'</div><div class="mydancetitle" ><h1>'+data[i].danceTitle+'</h1><p>'+data[i].uploadDate+'</p></div></a></div></li>';
 	        	 }
 	        	 angular.element(document.querySelector('#danceul')).append(appenddate);					
@@ -272,7 +272,7 @@ myApp.controller('photoController', function($scope, $http){
 	        	 }
 	        	 for(var i=0;i<data.length;i++){
 	        		 appenddate=appenddate+'<li class="photo"><a href="getPhotoDetial.do?id='+data[i].id+'"><div class="cover">'
-	        		 +'<img class="coverphoto" src="<%=path %>/upload/photos/'+data[i].imgFace
+	        		 +'<img class="coverphoto" src="/upload/photos/'+data[i].imgFace
 	        		 +'" /></div><div class="imgtitle"><h1>「'+data[i].title+'」</h1></div></a></li>'
 	        	 }
 	        	 angular.element(document.querySelector('#danceul')).append(appenddate);					

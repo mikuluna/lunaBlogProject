@@ -70,7 +70,10 @@ public class LunaDanceAction {
 	@RequestMapping(value = "/deletedance")
 	public String deleteDance(HttpServletRequest request,Model model) throws ServletException, IOException{
 		Integer id = Integer.parseInt(request.getParameter("id"));
+		LunaDance lunaDance = lunaDanceService.queryById(id);
 		lunaDanceService.deleteById(id);
+		String fileNamePath = request.getSession().getServletContext().getRealPath("/") + "lunaimg/"+lunaDance.getImgFace();
+		UploadFile.deleteFile(fileNamePath);
 		List<LunaDance> ludanList = lunaDanceService.queryAllDance();
 		model.addAttribute("danceList", ludanList);
 		return "/query/queryLunaDance";

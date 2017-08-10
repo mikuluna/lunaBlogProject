@@ -27,6 +27,7 @@
 		<!--中间内容部分结束-->
 		<!--页脚-->
 		<div class="contain_foot">
+		<div class="contain_my_title">
 			<div class="myzan">
 				<h1>如果你真的喜欢的我的话</h1>
 			</div>
@@ -42,7 +43,7 @@
 			<div class="myhobbycontain">
 				<h2><a href="exit.html">退出</a></h2>
 			</div>
-			<div></div>
+		</div>
 		</div>
 		<div style="clear: both;"></div>
 		

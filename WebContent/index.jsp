@@ -5,6 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="诗小轩的个人博客，由诗小轩制作">
+    <meta name="keyword" content="诗小轩,小轩,轩轩,小轩博客">
+    <link rel="shortcut icon"href="img/myico.ico"/>
+    
 <title>小轩博客</title>
 	<link rel="stylesheet" href="<%=path %>/css/layui.css" />
 	<link rel="stylesheet" href="<%=path %>/css/style.css" />

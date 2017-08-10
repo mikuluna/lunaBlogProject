@@ -1,6 +1,7 @@
 package com.luna.myblog.action;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -61,9 +62,10 @@ public class LunaLearnNoteAction {
     }
 	@RequestMapping("/uploadLearnNote")
 	public ModelAndView uploadLearnNote(LunaLearnNote lunaLearnNote, HttpServletRequest request){
-		ModelAndView modelAndView = new ModelAndView("uploadlog");
+		ModelAndView modelAndView = new ModelAndView("uploadlearnnote");
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date date = new Date();
-		lunaLearnNote.setTime(date.toLocaleString());
+		lunaLearnNote.setTime(sdf.format(date));
 		lunaLearnNoteService.addld(lunaLearnNote);
 		return modelAndView;
 	}

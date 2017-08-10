@@ -45,6 +45,9 @@ public class LunaDanceServiceImpl implements LunaDanceService{
 		LunaDance lunaDance = (LunaDance) lunaDanceDao.findById(LunaDance.class, id);
 		lunaDanceDao.delete(lunaDance);
 	}
+	public LunaDance queryById (Integer id){
+		return (LunaDance) lunaDanceDao.findById(LunaDance.class, id);
+	}
 
 	public LunaDanceDaoI getLunaDanceDao() {
 		return lunaDanceDao;

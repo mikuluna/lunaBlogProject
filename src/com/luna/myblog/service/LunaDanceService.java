@@ -12,4 +12,5 @@ public interface LunaDanceService {
 
 	public List<LunaDance>queryAllDance();
 	public void deleteById(Integer id);
+	public LunaDance queryById (Integer id);
 }

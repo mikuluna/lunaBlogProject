@@ -12,4 +12,5 @@ public interface LunaHandWrokService {
 	public void addld(LunaHandWork lunaHandWrok);
 	public List<LunaHandWork>queryAllDance();
 	public void deleteById(Integer id);
+	public LunaHandWork queryById(Integer id);
 }

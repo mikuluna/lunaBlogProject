@@ -1,6 +1,7 @@
 package com.luna.myblog.action;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -51,8 +52,9 @@ public class LunaLogAction {
 	@RequestMapping("/uploadLog")
 	public ModelAndView uploadLog(LunaLog lunaLog, HttpServletRequest request){
 		ModelAndView modelAndView = new ModelAndView("uploadlog");
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date date = new Date();
-		lunaLog.setTime(date.toLocaleString());
+		lunaLog.setTime(sdf.format(date));
 		lunaLogService.addld(lunaLog);
 		return modelAndView;
 	}
